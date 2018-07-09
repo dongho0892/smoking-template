@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>흡연구역 알리미</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= stylesheet_link_tag   params[:controller], media: 'all' %>
+    <!--# 컨트롤마다 css 파일 쓰는게 다르기 때문에 다르게 적용시켜줄 것임-->
+    <!-- movie 컨르롤러는 movie.css 가 쓰이게끔 적용 가능 -->
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- icon -->
+    <link rel="icon" href="<%= asset_path 'log.png'%>">
+    <!-- end linking -->
+  </head>
+
+  <body>
+    <section id="admin">
+      <%= render 'shared/sidebar' %>
+      <div class="content">
+        <%= render 'shared/top' %>
+        <%= yield %>
+      <%= yield 'javascript_content' %>   <!-- 여기로 가라 -->
+      </div>
+    </section>    
+    
+  </body>
+</html>
